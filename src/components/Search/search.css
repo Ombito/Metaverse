@@ -1,0 +1,21 @@
+.search-container {
+    height: 90vh;
+    margin-top: 85px;
+    padding: 5px 10% 10px 10%;
+}
+.search-container-hero {
+    display: flex;
+    gap: 30px;
+    border-radius: 5px;
+}
+.search-category-div {
+    padding: 0 20px;
+    width: 18%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.search-container p {
+    cursor: pointer;
+}
+.search-category-div p:hover {
+    color: rgb(17, 218, 17);
+}

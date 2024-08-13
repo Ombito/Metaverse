@@ -1,0 +1,7 @@
+.settings-container {
+    margin-top: 70px;
+    padding: 5px 10% 5% 10%;
+}
+.settings-container-div {
+    display: flex;
+}

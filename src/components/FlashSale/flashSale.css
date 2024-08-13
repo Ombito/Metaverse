@@ -1,0 +1,9 @@
+.flash-sales-container {
+    margin-top: 70px;
+    padding: 5px 10% 5% 10%;
+}
+.flash-sales-div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}

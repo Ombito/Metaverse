@@ -1,0 +1,121 @@
+footer {
+    /* background-color: #0b462c; */
+    text-align: center;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    green 0,
+    transparent 30px,
+    rgba(96, 243, 11, 0.208) 30px,
+    transparent 60px,
+    green 120px,
+    transparent 240px
+  );
+  background-color: green;
+
+
+    padding: 10px 0;
+    color: #dfd9d9;
+    font-size: 14px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+}
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.footer-section {
+    flex: 1;
+    margin-bottom: 20px;
+} 
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.footer-section p {
+    color: #dfd9d9;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-section ul li {
+    margin-bottom: 10px;
+    color: #dfd9d9;
+    text-decoration: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.footer-section ul li:hover {
+    color: #129806;
+} 
+.copyright {
+    margin-top: 20px;
+    background-color: #171818;
+    padding: 10px 0;
+    text-align: center;
+}
+.app-links {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+.app-link {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.app-link img {
+    height: 40px;
+    width: auto;
+}
+.newsletter-form {
+    display: flex;
+    align-items: center;
+} 
+.newsletter-form input[type="email"] {
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+}
+.newsletter-form button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.social-icons {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+  .social-icon {
+    font-size: 1.5rem;
+    color: #dfd9d9;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.social-icon:hover {
+    opacity: 0.8;
+    color: #fe9935;
+}
+
+  /* Mobile screen esponsive styles */ 
+@media (max-width: 768px) {
+    .footer-section {
+      flex-basis: 50%;
+    }
+}
+  

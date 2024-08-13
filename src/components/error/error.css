@@ -1,0 +1,24 @@
+.error-container {
+    display: flex;
+    margin: 80px 0;
+    height: 80vh;
+    padding: 5px 10% 10px 10%;
+}
+.error-image {
+    margin: auto;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+.error-button button {
+    display: flex;
+    position: absolute;
+    top: 190px;
+    left: 190px;
+    padding: 12px 20px;
+    cursor: pointer;
+    background-color: #119216;
+    border-radius: 4px;
+    color: white;
+    border: none;
+}

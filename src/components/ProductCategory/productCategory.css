@@ -1,0 +1,35 @@
+.product-category {
+  margin-top: 80px;
+  align-items: center;
+  padding: 5px 10% 10px 10%;
+}
+.product-category h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.category-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.product-category-hero {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+}
+.product-category-items {
+  display: block;
+  width: 100%;
+}
+.product-category-div {
+  padding: 0 20px;
+  width: 22%;
+  height: 15%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+  @media (max-width: 768px) {
+    .category-card {
+      justify-content: center;
+    }
+  }

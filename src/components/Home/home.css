@@ -181,6 +181,7 @@ span {
     display: flex;
     flex-direction: column;
 } */
+
 .back-to-top {
     position: fixed;
     bottom: 20px;

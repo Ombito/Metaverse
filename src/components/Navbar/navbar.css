@@ -311,7 +311,34 @@ ul {
     padding: 0 10px;
     font-size: 1em;
   }
+
+
+  .suggestions-list {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+  }
   
+  .suggestions-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .suggestions-list li:hover {
+    background-color: #f0f0f0;
+  }
+
+
   .search-button {
     background-color: #119216;
     color: white;
@@ -324,18 +351,6 @@ ul {
   .search-button:hover {
     color: black;
   }
-  /* .cart-itemis {
-    position: absolute;
-    background-color: red;
-    color: white;
-    top: 12px;
-    right: 335px;
-    font-size: 0.7em;
-    font-weight: bold;
-    border-radius: 50%;
-    text-align: center;
-    padding: 1px 6px 3px 6px ;
-  } */
   .cart-items {
     position: absolute;
     top: 15px;
@@ -343,8 +358,6 @@ ul {
     padding: 2px 5px 1px 5px ;
     font-size: 0.8rem;
     align-items: center;
-    /* top: 8px; */
-    /* margin-right: 330px; */
     background-color: red;
     color: white;
     font-size: 10px;

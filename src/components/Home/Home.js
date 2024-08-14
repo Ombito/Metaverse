@@ -203,7 +203,7 @@ const Home = ({ addToCart, addToFavorites, favorite, products }) => {
         </div>
           {/* {loading ? (
             <div class="loader">
-              <span class="loader-text">Loading.....</span>
+              <span class="loader-text">Loading...</span>
                 <span class="load"></span>
             </div>
           ) : ( */}

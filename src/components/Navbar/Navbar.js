@@ -9,8 +9,10 @@ const Navbar = ({ user, setUser, size, products }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
+  const searchContainerRef = useRef(null);
   const cartLength = size;
 
   const handleNavigate = (route) => {
@@ -25,6 +27,7 @@ const Navbar = ({ user, setUser, size, products }) => {
   const handleSearch = () => {
     navigate(`/search/${searchQuery}`);
     setSearchQuery('');
+    setSuggestions([]);
   };
 
   const handleInputChange = (e) => {
@@ -34,7 +37,22 @@ const Navbar = ({ user, setUser, size, products }) => {
       product.name.toLowerCase().includes(e.target.value.toLowerCase())
     );
     setSearchResults(results);
-  };
+
+    fetch('/suggestions.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const filteredSuggestions = data.suggestions.filter(suggestion =>
+          suggestion.toLowerCase().includes(e.target.value.toLowerCase())
+        );
+        setSuggestions(filteredSuggestions);
+      });
+  
+    };
 
   const handleLogout = async () => {
     try {
@@ -63,19 +81,26 @@ const Navbar = ({ user, setUser, size, products }) => {
     setDropdownVisible(!dropdownVisible);
   };
   
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownVisible(false);
-    }
-  };
-
+  
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownVisible(false);
+    }
+    if (
+      searchContainerRef.current && !searchContainerRef.current.contains(event.target)
+    ) {
+      setSuggestions([]);
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -85,9 +110,18 @@ const Navbar = ({ user, setUser, size, products }) => {
             <img className="logo" src={Logo} alt="Logo" />
           </Link>
           <div className="search-hero">
-            <div className="search-containe">
+            <div className="search-containe" ref={searchContainerRef}>
               <FaSearch className="search-icon" />
               <input value={searchQuery} onChange={handleInputChange} type="text" className="search-input" placeholder="Search for products and categories..." required />
+              {suggestions.length > 0 && (
+                <ul className="suggestions-list">
+                  {suggestions.map((suggestion, index) => (
+                    <li key={index} onClick={() => setSearchQuery(suggestion)}>
+                      {suggestion}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
             <button onClick={handleSearch} className="search-button">SEARCH</button>
           </div>
@@ -205,9 +239,18 @@ const Navbar = ({ user, setUser, size, products }) => {
             </div>
           </div>
         </div>
-        <div className="mobile-search">
+        <div className="mobile-search" ref={searchContainerRef}>
           <FaSearch className="search-icon" />
           <input value={searchQuery} onChange={handleInputChange} type="text" className="search-input" placeholder="Search for products..." required />
+          {suggestions.length > 0 && (
+            <ul className="suggestions-list">
+              {suggestions.map((suggestion, index) => (
+                <li key={index} onClick={() => setSearchQuery(suggestion)}>
+                  {suggestion}
+                </li>
+              ))}
+            </ul>
+          )}
           <button onClick={handleSearch} className="mobile-search-button">SEARCH</button>
         </div>
       </div>
